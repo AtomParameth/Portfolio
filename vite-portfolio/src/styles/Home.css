@@ -1,0 +1,69 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.home-text h1 {
+  font-size: 80px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 80px 0;
+}
+
+.home-text .knowMe {
+  background-color: transparent;
+  border: 2px solid #333;
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.home-text .knowMe:hover {
+  color: #fff;
+}
+
+.home-text .knowMe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  z-index: -1;
+  transition: transform 0.25s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.home-text .knowMe:hover::before {
+  transform: scaleX(1);
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    margin: 0 auto;
+  }
+
+  .home-text {
+    max-width: 440px;
+    text-align: left;
+  }
+
+  .home-text h1 {
+    font-size: 55px;
+  }
+}

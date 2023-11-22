@@ -1,0 +1,71 @@
+.nav-state {
+  height: 80px;
+  background-color: #ffffff;
+  color: #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.nav-state.active{
+  transition: all 0.25s ease;
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.1));
+}
+.nav-state.unactive{
+  transition: all 0.25s ease;
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+}
+.nav-container {
+  max-width: 90rem;
+  margin: 0 auto;
+  height: 100%;
+}
+.nav-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.nav-menu ul li {
+  padding: 0 30px 0 0;
+}
+.nav-menu ul .menu-btn {
+  color: rgb(131, 131, 131);
+  font-size: 18px;
+  background-color: transparent;  
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+.nav-menu ul .menu-btn::before {
+  content: "";
+  position: absolute;
+  bottom: -27.5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.25s ease;
+  background-color: #333;
+}
+.nav-menu ul .menu-btn:hover {
+  color: #333;
+}
+.nav-menu ul .menu-btn:hover::before {
+  width: 100%;
+}
+.nav-menu ul .menu-btn.active {
+  color: #1f1f1f;
+}
+.nav-menu ul .menu-btn.active::before {
+  width: 100%;
+}
+.nav-logo {
+  padding: 0 0 0 30px;
+}
