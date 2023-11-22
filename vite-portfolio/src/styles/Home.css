@@ -53,17 +53,22 @@
   transform: scaleX(1);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .home-container {
     margin: 0 auto;
   }
 
   .home-text {
-    max-width: 440px;
-    text-align: left;
+    text-align: center;
+    padding: 0 10px;
   }
 
   .home-text h1 {
     font-size: 55px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .home-text h1 {
+    font-size: 50px;
   }
 }

@@ -106,3 +106,27 @@
   color: #fff;
   transition: all 0.2s ease-in-out;
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 600px;
+    height: 340px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 340px;
+    height: 225px;
+  }
+  .card .info {
+    padding: 5px 15px;
+    font-size: 0.7rem;
+  }
+  .card .info p {
+    font-size: 0.6rem;
+  }
+  .card .info .git-btn {
+    font-size: 0.6rem;
+  }
+}

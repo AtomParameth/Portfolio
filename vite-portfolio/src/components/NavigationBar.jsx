@@ -4,7 +4,6 @@ import "../styles/NavigationBar.css";
 
 function NavigationBar() {
   const [activeMenu, setActiveMenu] = useState("Home");
-  const [navStateActive, setNavStateActive] = useState(false);
   const handleActiveMenu = (menuId) => {
     const getActived = document.getElementById(menuId);
     if (getActived) {
@@ -59,11 +58,13 @@ function NavigationBar() {
 
   return (
     <>
-      <div className={`nav-state ${navStateActive ? "active" : "unactive"}`}>
+      <div className={`nav-state`}>
         <div className="nav-container">
           <div className="nav-con">
             <div className="nav-logo">
-              <h1>Parameth</h1>
+              <Link to="Home" smooth={true} duration={500}>
+                <h1>Parameth</h1>
+              </Link>
             </div>
             <div className="nav-menu">
               <ul>
