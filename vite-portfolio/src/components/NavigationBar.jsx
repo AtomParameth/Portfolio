@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import "../styles/NavigationBar.css";
-
+import { FiMenu, FiX } from "react-icons/fi";
 function NavigationBar() {
   const [activeMenu, setActiveMenu] = useState("Home");
+  const [hamClick, setHamClick] = useState(false);
+  const openMobileMenu = () => setHamClick(!hamClick);
+  const closeMobileMenu = () => setHamClick(false);
   const handleActiveMenu = (menuId) => {
     const getActived = document.getElementById(menuId);
     if (getActived) {
@@ -66,7 +69,7 @@ function NavigationBar() {
                 <h1>Parameth</h1>
               </Link>
             </div>
-            <div className="nav-menu">
+            <div className={hamClick ? "nav-menu active" : "nav-menu"}>
               <ul>
                 <li>
                   <Link
@@ -139,6 +142,9 @@ function NavigationBar() {
                   </Link>
                 </li>
               </ul>
+            </div>
+            <div className="mobile-menu" onClick={() => openMobileMenu()}>
+              {hamClick ? <FiX /> : <FiMenu />}
             </div>
           </div>
         </div>
