@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/Skills.css";
 import html_logo from "../images/logo/html-logo.svg";
 import css_logo from "../images/logo/css-logo.svg";
@@ -9,8 +9,35 @@ import firebase_logo from "../images/logo/firebase-logo.svg";
 import unity_logo from "../images/logo/unity-logo.svg";
 import figma_logo from "../images/logo/figma-logo.svg";
 function Skills() {
+    const aboutRef = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+  
+      const aboutElement = aboutRef.current;
+      if (aboutElement) {
+        observer.observe(aboutElement);
+      }
+  
+      return () => {
+        if (aboutElement) {
+          observer.unobserve(aboutElement);
+        }
+      };
+    }, []);
   return (
-    <div id="Skills" className="skill-container">
+    <div id="Skills" className="skill-container hidden" ref={aboutRef}>
       <div className="skill-title">
         <h1>Skills</h1>
       </div>

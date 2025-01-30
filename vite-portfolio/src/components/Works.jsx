@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/Works.css";
 import dmeShowCase from "../images/dme-show-case.png";
 import masterReview from "../images/master-review.png";
 import tankMaster from "../images/tank-master.png";
 function Works() {
+    const aboutRef = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            } else {
+              entry.target.classList.remove("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+  
+      const aboutElement = aboutRef.current;
+      if (aboutElement) {
+        observer.observe(aboutElement);
+      }
+  
+      return () => {
+        if (aboutElement) {
+          observer.unobserve(aboutElement);
+        }
+      };
+    }, []);
   return (
-    <div id="Works" className="works-container">
+    <div id="Works" className="works-container hidden" ref={aboutRef}>
       <div className="work-title">
         <h1>Works</h1>
       </div>

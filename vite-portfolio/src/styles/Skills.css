@@ -59,3 +59,14 @@
 .skill-card img {
   margin-right: 0.6rem;
 }
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
